@@ -23,6 +23,7 @@ class ComposerStaticInitbf6ef1b9f36cdc21e9f11c247c899190
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         'b6ec61354e97f32c0ae683041c78392a' => __DIR__ . '/..' . '/scrivo/highlight.php/HighlightUtilities/functions.php',
         'ed962a97bd972bc82007176b647d4e36' => __DIR__ . '/..' . '/facade/ignition/src/helpers.php',
+        '17d016dc52a631c1e74d2eb8fdd57342' => __DIR__ . '/..' . '/laravel/helpers/src/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -420,7 +421,13 @@ class ComposerStaticInitbf6ef1b9f36cdc21e9f11c247c899190
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
+        'App\\Http\\Controllers\\Buyer\\BuyerController' => __DIR__ . '/../..' . '/app/Http/Controllers/Buyer/BuyerController.php',
+        'App\\Http\\Controllers\\Category\\CategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Category/CategoryController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\Product\\ProductController' => __DIR__ . '/../..' . '/app/Http/Controllers/Product/ProductController.php',
+        'App\\Http\\Controllers\\Seller\\SellerController' => __DIR__ . '/../..' . '/app/Http/Controllers/Seller/SellerController.php',
+        'App\\Http\\Controllers\\Transaction\\TransactionController' => __DIR__ . '/../..' . '/app/Http/Controllers/Transaction/TransactionController.php',
+        'App\\Http\\Controllers\\User\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/User/UserController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\CheckForMaintenanceMode' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckForMaintenanceMode.php',
