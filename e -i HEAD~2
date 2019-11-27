@@ -1,0 +1,35 @@
+[33mcommit fd8e1d63b72a8e6e31ba31c828afdfc8edfb2722[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Islam Gamal <Bobosgamal@gmail.com>
+Date:   Wed Nov 27 05:48:12 2019 +0200
+
+    Add verify user email
+
+[33mcommit bdfa60f3b3d513e3605177e54f1a1f4ec566d342[m
+Author: Islam Gamal <Bobosgamal@gmail.com>
+Date:   Wed Nov 27 05:44:13 2019 +0200
+
+    Add verify user email
+
+[33mcommit 7a8e252c6327b4f64c94ad8975c7cd15f764054f[m
+Author: Islam Gamal <Bobosgamal@gmail.com>
+Date:   Wed Nov 27 05:17:40 2019 +0200
+
+    add complex controlle operatians and verify user email
+
+[33mcommit 8373a8b9fb3a30718ad6a9343c908fb5f85ff38d[m
+Author: Islam Gamal <Bobosgamal@gmail.com>
+Date:   Sat Nov 23 21:48:09 2019 +0200
+
+    Add Main Controllers
+
+[33mcommit ee187b1924caf1571b57be6364fdf89ca3ff01b1[m
+Author: Islam Gamal <Bobosgamal@gmail.com>
+Date:   Sun Nov 17 18:15:31 2019 +0200
+
+    Add migrations, factories and seed
+
+[33mcommit 4f73741fc67e014c64d5fb8ed051c8dfdeb6f8cd[m
+Author: Islam Gamal <Bobosgamal@gmail.com>
+Date:   Sat Nov 16 19:33:54 2019 +0200
+
+    Main
