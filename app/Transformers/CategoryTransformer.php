@@ -39,6 +39,28 @@ class CategoryTransformer extends TransformerAbstract
             'Creation Date' => (string)$category->created_at,
             'Last Change' => (string)$category->updated_at,
             'Deleted Date' => isset($category->deleted_at) ? (string)$category->deleted_at : null,
+            'Links' => [
+                [
+                    'rel' => 'Self',
+                    'href' =>  route('categories.show', $category->id),
+                ],
+                [
+                    'rel' => 'Category.Buyers',
+                    'href' =>  route('categories.buyers.index', $category->id),
+                ],
+                [
+                    'rel' => 'Category.Products',
+                    'href' =>  route('categories.products.index', $category->id),
+                ],
+                [
+                    'rel' => 'Category.Sellers',
+                    'href' =>  route('categories.sellers.index', $category->id),
+                ],
+                [
+                    'rel' => 'Category.Transactions',
+                    'href' =>  route('categories.transactions.index', $category->id),
+                ],
+            ]
         ];
     }
 
@@ -52,6 +74,20 @@ class CategoryTransformer extends TransformerAbstract
                 'Creation Date' => 'created_at',
                 'Last Change' => 'updated_at',
                 'Deleted Date' => 'deleted_at',
+            ];
+        return isset($attributes[$index]) ? $attributes[$index] : null;
+    }
+
+    public static function transformedAttribute($index)
+    {
+        $attributes =
+            [
+                'id' => 'Identifier',
+                'name' => 'Title' ,
+                'description' => 'Details' ,
+                'created_at' => 'Creation Date' ,
+                'updated_at' => 'Last Change' ,
+                'deleted_at' => 'Deleted Date' ,
             ];
         return isset($attributes[$index]) ? $attributes[$index] : null;
     }

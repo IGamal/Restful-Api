@@ -3,7 +3,10 @@
 namespace App\Traits;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Validator;
 
 trait ApiResponser
 {
@@ -28,7 +31,9 @@ trait ApiResponser
 
         $collection = $this->filterData($collection, $transformer);
         $collection = $this->sortData($collection, $transformer);
+        $collection = $this->pagination($collection);
         $collection = $this->transformData($collection, $transformer);
+        $collection = $this->cacheResponse($collection);
 
         return $this->successResponse($collection, $code);
     }
@@ -71,11 +76,47 @@ trait ApiResponser
         return $collection;
     }
 
+    protected function pagination(Collection $collection)
+    {
+        $rules = [ 'per_page' => 'integer|min:5|max:50'];
+
+        Validator::validate(request()->all(), $rules);
+
+        $page = LengthAwarePaginator::resolveCurrentPage();
+
+        $per_page = 15;
+        if(request()->has('per_page')) { $per_page = request()->per_page;}
+
+        $result = $collection->slice(($page - 1) * $per_page, $per_page)->values();
+
+        $paginated = new LengthAwarePaginator($result, $collection->count(), $per_page, $page, ['path' => LengthAwarePaginator::resolveCurrentPath()]);
+
+        $paginated->appends(request()->all());
+
+        return $paginated;
+
+    }
+
     protected function transformData($data, $transformer)
     {
         $transformation = fractal($data, new $transformer);
 
         return$transformation->toArray();
+    }
+
+    protected function cacheResponse($data)
+    {
+        $url = request()->url();
+
+        $queryParams = request()->query();
+        ksort($queryParams);
+        $queryString = http_build_query($queryParams);
+        $fullUrl = "{$url}?{$queryString}";
+
+        return Cache::remember($fullUrl, 1, function() use($data)
+        {
+            return $data;
+        });
     }
 }
 ?>
